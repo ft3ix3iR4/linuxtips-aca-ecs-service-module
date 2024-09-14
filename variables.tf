@@ -1,4 +1,5 @@
 variable "region" {}
+
 variable "service_name" {}
 
 variable "cluster_name" {}
@@ -32,3 +33,5 @@ variable "service_healthcheck" {
 variable "service_launch_type" {}
 
 variable "service_task_count" {}
+
+variable "service_hosts" {}
