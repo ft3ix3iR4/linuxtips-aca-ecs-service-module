@@ -32,7 +32,7 @@ resource "aws_iam_role_policy" "service_execution_role" {
           "elasticloadbalancing:RegisterInstancesWithLoadBalancer",
           "elasticloadbalancing:RegisterTargets",
           "ec2:Describe*",
-          "ec2:AuthorizeSecurityGroupIngress"
+          "ec2:AuthorizeSecurityGroupIngress",
           "ecr:GetAuthorizationToken",
           "ecr:BatchCheckLayerAvailability",
           "ecr:GetDownloadUrlForLayer",
