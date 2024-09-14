@@ -4,7 +4,7 @@ resource "aws_alb_target_group" "main" {
   port   = var.service_port
   vpc_id = var.vpc_id
 
-  protocol    = "HTTPS"
+  protocol    = "HTTP"
   target_type = "ip"
 
   health_check {
