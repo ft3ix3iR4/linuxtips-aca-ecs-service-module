@@ -33,6 +33,14 @@ resource "aws_iam_role_policy" "service_execution_role" {
           "elasticloadbalancing:RegisterTargets",
           "ec2:Describe*",
           "ec2:AuthorizeSecurityGroupIngress"
+          "ecr:GetAuthorizationToken",
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:GetDownloadUrlForLayer",
+          "ecr:BatchGetImage",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents",
+          "ssm:GetParameters",
+          "secretsmanager:GetSecretValue"
         ],
         Resource = "*",
         Effect   = "Allow"
