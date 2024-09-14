@@ -36,7 +36,7 @@ resource "aws_ecs_service" "main" {
     ]
   }
 
-  platform_version = "latest"
+  #platform_version = "latest"
 
   depends_on = []
 
