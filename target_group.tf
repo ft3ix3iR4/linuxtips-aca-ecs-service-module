@@ -1,10 +1,10 @@
 resource "aws_alb_target_group" "main" {
   name = format("%s-%s", var.cluster_name, var.service_name)
 
-  port = var.service_port
+  port   = var.service_port
   vpc_id = var.vpc_id
 
-  protocol = "HTTP"
+  protocol    = "HTTP"
   target_type = "ip"
 
   health_check {
@@ -17,8 +17,8 @@ resource "aws_alb_target_group" "main" {
     port                = lookup(var.service_healthcheck, "port", var.service_port)
   }
 
- lifecycle {
-   create_before_destroy = false
- }
+  lifecycle {
+    create_before_destroy = false
+  }
 
 }
