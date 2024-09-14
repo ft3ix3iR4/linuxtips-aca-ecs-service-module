@@ -1,3 +1,4 @@
+variable "region" {}
 variable "service_name" {}
 
 variable "cluster_name" {}
@@ -15,3 +16,11 @@ variable "service_memory" {}
 variable "service_listener" {}
 
 variable "service_task_execution_role" {}
+
+variable "environment_variables" {
+  type = list
+}
+
+variable "capabilities" {
+  type = list
+}
