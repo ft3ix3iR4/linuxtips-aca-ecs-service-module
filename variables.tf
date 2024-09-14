@@ -13,3 +13,5 @@ variable "service_cpu" {}
 variable "service_memory" {}
 
 variable "service_listener" {}
+
+variable "service_task_execution_role" {}
