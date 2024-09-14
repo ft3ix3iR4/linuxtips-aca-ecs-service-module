@@ -11,7 +11,7 @@ resource "aws_ecs_task_definition" "main" {
   execution_role_arn = aws_iam_role.service_execution_role.arn
   task_role_arn      = var.service_task_execution_role
 
-  container_definitions = jsondecode([
+  container_definitions = jsonencode([
     {
       name   = var.service_name
       image  = format("%s:latest", aws_ecr_repository.main.repository_url)
