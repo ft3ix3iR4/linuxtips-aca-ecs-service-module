@@ -103,7 +103,7 @@ variable "scale_in_evaluation_periods" {
 }
 
 variable "scale_in_cooldown" {
-  default = 120  
+  default = 120
 }
 
 ### Tracking CPU ###
