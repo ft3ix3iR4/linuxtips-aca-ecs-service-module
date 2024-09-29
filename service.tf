@@ -14,10 +14,19 @@ resource "aws_ecs_service" "main" {
     rollback = true
   }
 
-  ordered_placement_strategy {
-    type = "spread"
-    field = "attribute:ecs.availability-zone"
+  dynamic "ordered_placement_strategy" {
+    for_each = var.service_launch_type == "EC2" ? [1] : []
+    content {
+      type  = "spread"
+      field = "attribute:ecs.availability-zone"
+    }
   }
+
+  ### UTILIZADO NO DAY-4 ###
+  # ordered_placement_strategy {
+  #   type = "spread"
+  #   field = "attribute:ecs.availability-zone"
+  # }
 
   network_configuration {
     security_groups = [
