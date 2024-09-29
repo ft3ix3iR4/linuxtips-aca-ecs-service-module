@@ -30,7 +30,18 @@ variable "service_healthcheck" {
   type = map(any)
 }
 
-variable "service_launch_type" {}
+# variable "service_launch_type" {}
+
+variable "service_launch_type" {
+  type = list(object({
+    capacity_provider = string
+    weight            = number
+  }))
+  default = [{
+    capacity_provider = "SPOT"
+    weight            = 100
+  }]
+}
 
 variable "service_task_count" {}
 
