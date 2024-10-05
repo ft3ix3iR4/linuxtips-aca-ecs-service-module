@@ -2,6 +2,11 @@ variable "region" {}
 
 variable "service_name" {}
 
+variable "container_image" {
+  type = string
+  description = "Imagem com tag para deployment da aplicação no ECS."
+}
+
 variable "cluster_name" {}
 
 variable "vpc_id" {}
