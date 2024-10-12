@@ -24,7 +24,21 @@ variable "service_listener" {}
 variable "service_task_execution_role" {}
 
 variable "environment_variables" {
-  type = list(any)
+  type = list(object({
+    name : string
+    value : string
+  }))
+  description = "Lista de variáveis de ambiente que serão passadas para o serviço."
+  default     = []
+}
+
+variable "secrets" {
+  type = list(object({
+    name : string
+    valueFrom : string
+  }))
+  description = "Lista de secrets do parameter store ou do secrets manager"
+  default     = []
 }
 
 variable "capabilities" {
@@ -146,6 +160,6 @@ variable "efs_volumes" {
     mount_point : string
     read_only : bool
   }))
-  default = []
+  default     = []
   description = "Volumes EFS existentes para serem montados nas tasks do ECS"
 }
