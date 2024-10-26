@@ -31,11 +31,6 @@ resource "aws_ecs_service" "main" {
     }
   }
 
-  # capacity_provider_strategy {
-  #   capacity_provider = var.service_launch_type
-  #   weight            = 100
-  # }
-
   dynamic "ordered_placement_strategy" {
     for_each = var.service_launch_type == "EC2" ? [1] : []
     content {
