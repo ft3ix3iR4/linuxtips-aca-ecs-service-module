@@ -46,6 +46,7 @@ No modules.
 | <a name="input_efs_volumes"></a> [efs\_volumes](#input\_efs\_volumes) | Volumes EFS existentes para serem montados nas tasks do ECS | <pre>list(object({<br/>    volume_name : string<br/>    file_system_id : string<br/>    file_system_root : string<br/>    mount_point : string<br/>    read_only : bool<br/>  }))</pre> | `[]` | no |
 | <a name="input_environment_variables"></a> [environment\_variables](#input\_environment\_variables) | Lista de variáveis de ambiente que serão passadas para o serviço. | <pre>list(object({<br/>    name : string<br/>    value : string<br/>  }))</pre> | `[]` | no |
 | <a name="input_private_subnets"></a> [private\_subnets](#input\_private\_subnets) | Lista de IDs das subnets privadas onde o serviço será implantado. | `list(string)` | n/a | yes |
+| <a name="input_protocol"></a> [protocol](#input\_protocol) | n/a | `string` | `"tcp"` | no |
 | <a name="input_region"></a> [region](#input\_region) | Região onde os recursos do AWS serão provisionados. | `string` | n/a | yes |
 | <a name="input_scale_in_adjustment"></a> [scale\_in\_adjustment](#input\_scale\_in\_adjustment) | Quantidade de tarefas para reduzir durante uma ação de escala para baixo. | `number` | `-1` | no |
 | <a name="input_scale_in_comparison_operator"></a> [scale\_in\_comparison\_operator](#input\_scale\_in\_comparison\_operator) | Operador de comparação usado para a condição de escala para baixo, como 'LessThanOrEqualToThreshold'. | `string` | `"LessThanOrEqualToThreshold"` | no |
@@ -65,6 +66,8 @@ No modules.
 | <a name="input_scale_tracking_requests"></a> [scale\_tracking\_requests](#input\_scale\_tracking\_requests) | Número alvo de solicitações por segundo (TPS) para o rastreamento de escala. | `number` | `0` | no |
 | <a name="input_scale_type"></a> [scale\_type](#input\_scale\_type) | Tipo de escalabilidade, como 'cpu', 'cpu\_tracking' ou 'requests\_tracking'. | `string` | `null` | no |
 | <a name="input_secrets"></a> [secrets](#input\_secrets) | Lista de secrets do parameter store ou do secrets manager | <pre>list(object({<br/>    name : string<br/>    valueFrom : string<br/>  }))</pre> | `[]` | no |
+| <a name="input_service_connect_arn"></a> [service\_connect\_arn](#input\_service\_connect\_arn) | n/a | `string` | `null` | no |
+| <a name="input_service_connect_name"></a> [service\_connect\_name](#input\_service\_connect\_name) | n/a | `string` | `null` | no |
 | <a name="input_service_cpu"></a> [service\_cpu](#input\_service\_cpu) | Quantidade de CPU alocada para o serviço, especificada em unidades de CPU do ECS. | `number` | n/a | yes |
 | <a name="input_service_discovery_namespace"></a> [service\_discovery\_namespace](#input\_service\_discovery\_namespace) | Namespace ID do Service Discovery | `any` | `null` | no |
 | <a name="input_service_healthcheck"></a> [service\_healthcheck](#input\_service\_healthcheck) | Configuração do health check do serviço, incluindo caminho e protocolo. | `map(any)` | n/a | yes |
@@ -74,10 +77,13 @@ No modules.
 | <a name="input_service_memory"></a> [service\_memory](#input\_service\_memory) | Quantidade de memória alocada para o serviço, especificada em MB. | `number` | n/a | yes |
 | <a name="input_service_name"></a> [service\_name](#input\_service\_name) | Nome do serviço a ser utilizado no ECS ou identificador similar. | `string` | n/a | yes |
 | <a name="input_service_port"></a> [service\_port](#input\_service\_port) | Porta na qual o serviço estará acessível. | `number` | n/a | yes |
+| <a name="input_service_protocol"></a> [service\_protocol](#input\_service\_protocol) | n/a | `string` | `null` | no |
 | <a name="input_service_task_count"></a> [service\_task\_count](#input\_service\_task\_count) | Número de instâncias da tarefa a serem executadas simultaneamente no serviço. | `number` | n/a | yes |
 | <a name="input_service_task_execution_role"></a> [service\_task\_execution\_role](#input\_service\_task\_execution\_role) | ARN da role de execução de tarefas do ECS que o serviço usará para executar. | `string` | n/a | yes |
 | <a name="input_task_maximum"></a> [task\_maximum](#input\_task\_maximum) | Número máximo de tarefas que podem ser executadas pelo serviço. | `number` | `10` | no |
 | <a name="input_task_minimum"></a> [task\_minimum](#input\_task\_minimum) | Número mínimo de tarefas que devem ser executadas pelo serviço. | `number` | `3` | no |
+| <a name="input_use_lb"></a> [use\_lb](#input\_use\_lb) | Habilita a exposição do serviço via load balancer. | `bool` | `true` | no |
+| <a name="input_use_service_connect"></a> [use\_service\_connect](#input\_use\_service\_connect) | n/a | `bool` | `false` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID da VPC onde os recursos relacionados ao serviço serão provisionados. | `string` | n/a | yes |
 
 ## Outputs
