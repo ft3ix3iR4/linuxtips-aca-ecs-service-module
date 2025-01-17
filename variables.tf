@@ -54,6 +54,16 @@ variable "use_service_connect" {
   default = false
 }
 
+variable "deployment_controller" {
+  type    = string
+  default = "ECS"
+}
+
+variable "codedeploy_strategy" {
+  type = string
+  default = "CodeDeployDefault.AllAtOnce"
+}
+
 variable "service_connect_name" {
   type    = string
   default = null
