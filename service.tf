@@ -81,7 +81,7 @@ resource "aws_ecs_service" "main" {
   dynamic "load_balancer" {
     for_each = var.use_lb ? [1] : []
     content {
-      target_group_arn = (var.use_lb && var.deployment_controller == "CODE_DEPLOY") ? aws_alb_target_group.blue[0].arn : aws_alb_target_group.green[0].arn
+      target_group_arn = (var.use_lb && var.deployment_controller == "CODE_DEPLOY") ? aws_alb_target_group.blue[0].arn : aws_alb_target_group.main[0].arn
       container_name   = var.service_name
       container_port   = var.service_port
     }

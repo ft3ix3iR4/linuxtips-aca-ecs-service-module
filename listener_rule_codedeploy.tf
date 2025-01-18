@@ -1,4 +1,4 @@
-resource "aws_alb_listener_rule" "main" {
+resource "aws_alb_listener_rule" "codedeploy" {
   count = (var.use_lb && var.deployment_controller == "CODE_DEPLOY") ? 1 : 0
 
 
