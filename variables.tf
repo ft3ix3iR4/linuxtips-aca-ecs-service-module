@@ -60,8 +60,23 @@ variable "deployment_controller" {
 }
 
 variable "codedeploy_strategy" {
-  type = string
-  default = "CodeDeployDefault.AllAtOnce"
+  type    = string
+  default = "CodeDeployDefault.ECSAllAtOnce"
+}
+
+variable "codedeploy_deployment_option" {
+  type    = string
+  default = "WITH_TRAFFIC_CONTROL"
+}
+
+variable "codedeploy_deployment_type" {
+  type    = string
+  default = "BLUE_GREEN"
+}
+
+variable "codedeploy_termination_wait_time_in_minutes" {
+  type    = number
+  default = "2"
 }
 
 variable "service_connect_name" {
