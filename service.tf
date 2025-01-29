@@ -63,12 +63,6 @@ resource "aws_ecs_service" "main" {
     }
   }
 
-  ### UTILIZADO NO DAY-4 ###
-  # ordered_placement_strategy {
-  #   type = "spread"
-  #   field = "attribute:ecs.availability-zone"
-  # }
-
   network_configuration {
     security_groups = [
       aws_security_group.main.id
