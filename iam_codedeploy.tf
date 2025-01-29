@@ -1,5 +1,6 @@
 resource "aws_iam_role" "codedeploy" {
-  name = format("%s-%s-codedeploy", var.cluster_name, var.service_name)
+  name  = format("%s-%s-codedeploy", var.cluster_name, var.service_name)
+  count = var.deployment_controller == "CODE_DEPLOY" ? 1 : 0
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
