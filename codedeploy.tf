@@ -29,9 +29,9 @@ resource "aws_codedeploy_deployment_group" "main" {
       action                           = "TERMINATE"
       termination_wait_time_in_minutes = var.codedeploy_termination_wait_time_in_minutes
     }
-    deployment_ready_option {
-      action_on_timeout = "CONTINUE_DEPLOYMENT"
-    }
+      deployment_ready_option {
+        action_on_timeout = "CONTINUE_DEPLOYMENT"
+      }
   }
 
   load_balancer_info {
